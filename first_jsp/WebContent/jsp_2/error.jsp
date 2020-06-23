@@ -4,16 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>img jsp</title>
-<style>
-	img{
-		width : 300px;
-		height : 300px;
-	}
-</style>
+<title>JSP 예제 : error.jsp</title>
 </head>
 <body>
-	<img src="../img/cat.jpg" alt="" />
-	<img src="../img/choi.jpg" alt="" />
+	<% String [] str = {"감사합니다.", "Thank you."}; %>
+	
+	한국어로 [<%= str[0] %>]는 <br />
+	영어로 [<%= str[1] %>]이다.
 </body>
 </html>

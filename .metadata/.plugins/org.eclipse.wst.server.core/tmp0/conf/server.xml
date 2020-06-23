@@ -153,7 +153,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="C:\jsp_2020\jsp_workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\jsp_2020\jsp_workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\first_jsp" path="/first_jsp" reloadable="true" source="org.eclipse.jst.jee.server:first_jsp"/></Host>
+      <Context docBase="C:\jsp_2020\jsp_workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\jsp_2020\jsp_workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\first_jsp" path="/first_jsp" reloadable="true" source="org.eclipse.jst.jee.server:first_jsp"/><Context docBase="C:\jsp_2020\jsp_workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\second_jsp" path="/second_jsp" reloadable="true" source="org.eclipse.jst.jee.server:second_jsp"/></Host>
     </Engine>
   </Service>
 </Server>

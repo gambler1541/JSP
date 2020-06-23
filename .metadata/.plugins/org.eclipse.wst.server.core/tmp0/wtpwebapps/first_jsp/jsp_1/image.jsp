@@ -15,6 +15,5 @@
 <body>
 	<img src="../img/cat.jpg" alt="" />
 	<img src="../img/choi.jpg" alt="" />
-	
 </body>
 </html>
