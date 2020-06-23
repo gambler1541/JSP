@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>request Test</title>
+</head>
+<body>
+	<h2> 학생 정보 입력</h2>
+	<form action="request.jsp" method="GET">
+		성명 : <input type="text" name="name" /><p></p>
+		학번 : <input type="text" name="studentNum" /><p></p>
+	
+		성별 : 남자 <input type="radio" name="sex" value="man"  checked/>
+			  여자 <input type="radio" name="sex" value="woman" /> <p>
+			  
+		국적  : <select name="country" id="country">
+			<option SELECTED value="1">대한민국</option>
+			<option value="2">일본</option>
+			<option value="3">중국</option>
+			<option value="4">터키</option>
+			<option value="5">태국</option>
+		</select><p>
+		
+		주소 : <input type="address" name="addr" /> <p></p>
+		<input type="submit" value="보내기" />
+		
+	</form>
+</body>
+</html>
