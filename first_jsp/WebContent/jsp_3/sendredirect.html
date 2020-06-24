@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>sendredicect Test</title>
+</head>
+<body>
+	<h2>검색할 단어를 입력하세요</h2>
+	<form method="get" action="sendredirect.jsp"
+	action="">
+	검색 키워드 <input type="text" name="word"/> <p></p>
+	<input type="radio" name="url" value="1"/> 구글
+	<input type="radio" name="url" value="2"/> 다음
+	<input type="radio" name="url" value="3"/> 네이버
+	<input type="submit" value="보내기" />
+	<input type="submit" value="취소" />
+	</form>
+	<br>
+	<form action="sendredirect.jsp" method="get">
+		검색 키워드 <input type="text" name="word"/> <p></p>
+		<select name="url">
+		<option value="1">구글</option>
+		<option value="2">다음</option>
+		<option value="3">네이버</option>
+		<input type="submit" value="보내기" />
+	</select><br><br>
+	</form>
+</body>
+</html>
