@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	table {
+		margin: auto;
+	}
+</style>
+</head>
+<body>
+<h3>Member info</h3>
+<hr size="5" color="blue" />
+<div id="main">
+	<form action="member.jsp" method="post">
+	<table>
+		<tr>
+			<td><label for="id">id : </label></td>
+			<td><input type="text" name="id" id="id" /></td>
+		</tr>
+		<tr>
+			<td><label for="password">pwd : </label></td>
+			<td><input type="password" name="password" id="password" /></td>
+		</tr>
+		<tr>
+			<td><label for="name">name : </label></td>
+			<td><input type="text" name="name" id="name" /></td>
+		</tr>
+		<tr>
+			<td><label for="addr">addr : </label></td>
+			<td> <input type="text" name="addr" id="addr"  /></td>
+		</tr>
+		<tr>
+			<td><label for="tel">tel : </label></td>
+			<td><input type="tel" name="tel" id="tel" /></td>
+		</tr>
+		<tr>
+			<td><label for="hobby">hobby : </label></td>
+			<td> <select name="hobby">
+			<option value="낚시">낚시</option>
+			<option value="게임">게임</option>
+			<option value="영화보기">영화보기</option>
+		</select></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2"><input type="submit"  value="확인"/>
+			<input type="reset" value="다시 작성" /></td>
+		</tr>
+	</table>
+	</form>
+</div>
+</body>
+</html>

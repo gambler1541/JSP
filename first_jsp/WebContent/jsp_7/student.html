@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSP StudentBean 사용 Test</title>
+</head>
+<body>
+<form action="student.jsp" name="student" method="post">
+		<table cellspacing="1" cellpadding="2">
+			<tr>
+				<td align="center" colspan="2" bgcolor="aliceblue"><b>학생 정보</b></td>
+			</tr>
+			<tr >
+				<td align="right">학생 아이디 : </td>
+				<td><input type="text" name="id" /></td>
+			</tr>
+			<tr>
+				<td align="right">학생 이름 : </td>
+				<td><input type="text" name="name" /></td>
+			</tr>
+			<tr>
+				<td align="right">학생 번호 :</td>
+				<td><input type="text" name="snum" /></td>
+			</tr>
+			<tr>
+				<td align="right">태어난 해 :</td>
+				<td>
+					<select name="year">
+						<option value="1990">1990</option>
+						<option value="1990">1991</option>
+						<option value="1991">1992</option>
+						<option value="1991">1993</option>
+						<option value="1993">1994</option>
+						<option value="1993">1995</option>
+						<option value="1995">1996</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td align="right">암호 : </td>
+				<td><input type="password" name="pass" /></td>
+			</tr>
+			<tr>
+				<td align="right">전자메일</td>
+				<td><input type="email" name="email" /></td>
+			</tr>
+			<tr>
+				<td align="center"><input type="submit" value="입력완료" /></td>
+				<td align="center"><input type="reset" value="다시쓰기" /></td>
+			</tr>
+		</table>
+</form>
+</body>
+</html>

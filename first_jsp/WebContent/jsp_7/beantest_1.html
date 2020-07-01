@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSP 예제 beantest_1.jsp</title>
+<style>
+	#formArea{
+		margin: auto;
+		width : 400px;
+		border : 1px solid black;
+	}
+	
+	h1, fieldset{
+		text-align: center;
+	}
+</style>
+</head>
+<body>
+<section id="formArea">
+	<h1>property="*" 테스트</h1>
+	<form action="beantest_1.jsp" method="post">
+		<fieldset>
+		<!--  fieldset 요소는  웹 양식의 여러 컨트롤과
+			   레이블(label)을 묶을 때 사용합니다.
+			   
+			 fieldset요소는 하나의 그룹으로 묶은 요소들
+			 주변으로 박스 모양의 선을 그려줍니다.
+			 
+			 또한, legend 요소를 사용하면 fieldset요소의 캡션
+			 (caption)을 정의할 수 있습니다.
+		 -->
+		<label for="name">이름 : </label>
+		<input type="text" name="name" id="name" /><br>
+		<label for="addr">주소 : </label>
+		<input type="text" name="addr" id="addr" /><br>
+		<label for="email">이메일 주소 : </label>
+		<input type="email" name="email" id="email" /><br>
+		<label for="tel">전화번호 : </label>
+		<input type="text" name="tel" id="tel" /><br>
+		<label for="birthday">생년월일 : </label>
+		<input type="date" name="birthday" id="birthday" /><br>
+		
+		<input type="submit" value="전송" />
+		
+		</fieldset>
+	</form>
+</section>
+</body>
+</html>
