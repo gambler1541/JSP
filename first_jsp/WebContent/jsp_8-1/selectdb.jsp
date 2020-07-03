@@ -18,6 +18,7 @@
 	
 		Connection con = null;
 		Statement stmt = null;
+		String gender = "";
 		// String driverName = "org.git.mm.mysql.Driver";
 		String driverName = "oracle.jdbc.driver.OracleDriver";
 		String dbURL = "jdbc:oracle:thin:@127.0.0.1:1521:ORCL";
@@ -41,10 +42,24 @@
 				<td align="center"><b>휴대폰2</b></td>
 				<td align="center"><b>주소</b></td>
 				<td align="center"><b>이메일</b></td>
+				<td align="center"><b>성별</b></td>
 			</tr>
 			<%
+
+				/* while(result.next()){
+				if(result.getString(5).charAt(0)=='1'){
+						gender = "남자";
+				}else gender="여자";
+					*/
 				while(result.next()){
+					int gendercheck = Integer.parseInt(result.getString("snum").substring(0,1));
+					if( gendercheck == 1){
+						gender = "남자";
+					}else{
+						gender = "여자";
+					}
 					
+		
 			%>
 			
 			<tr>
@@ -58,6 +73,7 @@
 				<td align="center"><%= result.getString(8) %></td>
 				<td align="center"><%= result.getString(9) %></td>
 				<td align="center"><%= result.getString(10) %></td>
+				<td align="center"><%= gender %></td>				
 			</tr>
 			<%
 				}

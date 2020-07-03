@@ -36,3 +36,6 @@ values ('korea', '9943inner', '김본규', 2010, '1987372', '컴퓨터공학과'
 
 insert into student (id, passwd, name, year, snum, depart, mobile1, mobile2, address, email)
 values ('busan', '92join', '박명배', 2011, '2047857', '컴퓨터공학과' , '017', '1425-7852', '부산시', 'oracle@gmail.com');
+
+insert into student (id, passwd, name, year, snum, depart, mobile1, mobile2, address, email)
+values ('northkorea', 'choi', '최우석', 2008, '2054857', '수학과' , '010', '2232-7852', '평양시', 'noko@gmail.com');
