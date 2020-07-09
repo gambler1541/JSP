@@ -69,4 +69,34 @@ ALTER TABLE posts ADD(addr varchar2(20));
 
 UPDATE posts SET addr = 'SEOUL';
 
+CREATE table student_1(
+	num number(10),
+	name varchar2(20)
+);
 
+DROP TABLE test PURGE;
+
+SELECT * FROM student;
+
+
+
+
+
+
+
+CREATE TABLE member(
+	id varchar2(15),
+	password varchar2(10),
+	name varchar2(15),
+	age number,
+	gender varchar2(5),
+	email varchar2(30),
+	primary key(id)
+);
+
+
+SELECT * FROM member;
+
+DROP TABLE member purge;
+
+DELETE FROM member where name="";
