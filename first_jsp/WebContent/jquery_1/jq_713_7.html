@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>인접한 자손 엘리먼트를 노드로 추가하기</title>
+<style>
+	em{
+		font-size: 20pt; line-height: 30pt;
+		margin : 30px; color: blue;
+	}
+</style>
+<script src="../js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('p em').css('background-color', 'yellow').each(function(){
+			$('.result1').append($(this).text()+"\n");
+		});
+		$('div>em').css('background-color', 'pink').each(function(){
+			$('.result2').append($(this).text()+"\n");
+		});
+		
+		$('p#flower>em').css('background-color', 'green').each(function(){
+			$('.result3').append($(this).text()+"\n");
+		})
+		
+		console.log("검색된 엘리먼트 개수 : " + $('p em').length);
+		console.log("검색된 엘리먼트 개수 : " + $('div>em').length);
+		console.log("검색된 엘리먼트 개수 : " + $('p#flower>em').length);
+
+	})
+	
+	/* 
+		css('css 프로퍼티이름', '값') => CSS 프로퍼티와 값을 기술하여 스타일을 적용한다.
+		
+		$(this) => 현재 선택중인 요소
+	*/
+</script>
+</head>
+<body>
+	<p>
+		<em>one</em>
+		<em>two</em>
+		<span><em>three</em></span>
+	</p>
+	<div>
+		<em>four</em>
+		<span><em>five</em></span>
+		<em>six</em>
+	</div>
+	<p id="flower">
+		<em>수선화</em>
+		<span><em>무궁화</em></span>
+		<em>라일락</em>
+		<span><em>제비꽃</em></span>
+		<em>안개꽃</em>
+	<p>
+<hr size="5" color="red" />
+
+	<div>
+		<span>ancestor descendant로 검색된 엘리먼트 : </span>
+		<span class="result1"></span>
+	</div>
+	<div>
+		<span>parent &lt; child로 검색된 엘리먼트 : </span>
+		<span class="result2"></span>
+	</div>
+	<div>
+		<span>parent &lt; child로 검색된 꽃 : </span>
+		<span class="result3"></span>
+	</div>
+
+</body>
+</html>

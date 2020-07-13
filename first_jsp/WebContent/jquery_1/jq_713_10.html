@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>조건에 만족하는 짝수와 홀수에 위치한 엘리먼트에 스타일을 적용하기-:odd, :even</title>
+<style>
+	table{ table-layout : auto; width: 75%; }
+</style>
+<script src="../js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('tr:even').css('backgroundColor', 'pink');
+		$('tr:odd').css('backgroundColor', 'yellow');
+		$('tr:first').css('backgroundColor', 'red');
+		$('tr:last').css('backgroundColor', 'green');
+	})
+</script>
+</head>
+<body>
+	<table>
+		<tr>	
+			<td>zero</td>
+		</tr>
+		<tr>
+			<td>one</td>
+		</tr>
+		<tr>
+			<td>two</td>
+		</tr>
+		<tr>
+			<td>three</td>
+		</tr>
+		<tr>
+			<td>four</td>
+		</tr>
+		<tr>
+			<td>five</td>
+		</tr>
+	</table>
+</body>
+</html>
