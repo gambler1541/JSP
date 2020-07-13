@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>페이지가 랜더링된 후 CSS 변경하기</title>
+<style>
+	span { font-size : 30pt }
+	.redtext { color : #f00 }
+	.italictext{ font-style: italic; }
+</style>
+<script src="../js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$('span').addClass('italictext');
+</script>
+</head>
+<body>
+<span>simple</span>
+
+<script type="text/javascript">
+	$('span').addClass('redtext');
+	
+
+</script>
+	<!--
+		jQuery를 HTML 문서에 포함시키는 방법은 일반적으로 <HEAD>태그내에 스타일 시트를 읽어 들인 다음 
+		자바스크립트를 읽어 들이는 순서를 따른다.
+		이때 다른 스크립트를 로드하기 전에 JQUERY 스크립트를 우선하여 로드 해야 한다.
+		
+		위 테스트에서 jquery를 <HEAD>와 <BODY> 두 군데서 사용하였다. 
+		실행 결과를 보면 <BODY>에서 기술한 jQuery만 적용된 것을 볼수 있다. <HEAD>에 기술한 jquery가 적용되지
+		않은 이유는 브라우저내의 HTML인터프리터에 의해 DOM 트리가 생성되기 전에 span 엘리먼트를 검색하려고 시도했기 
+		때문이다.
+	-->
+		
+</body>
+</html>

@@ -100,3 +100,10 @@ SELECT * FROM member;
 DROP TABLE member purge;
 
 DELETE FROM member where name="";
+
+ALTER TABLE member add(addr varchar2(50));
+
+UPDATE member SET addr = 'seoul';
+
+
+

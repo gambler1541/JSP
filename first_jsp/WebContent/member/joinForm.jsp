@@ -25,6 +25,10 @@
 			<td><input type="text" name="name" /></td>
 		</tr>
 		<tr>
+			<td>주소 :</td>
+			<td><input type="text" name="addr" size="50" /></td>
+		</tr>
+		<tr>
 			<td>나이 : </td>
 			<td><input type="text" name="age" maxlength="2" size="5" /></td>
 		</tr>
@@ -40,7 +44,7 @@
 		<tr>
 			<td colspan="2" align="center">
 			<a href="javascript:joinform.submit()">회원가입</a>&nbsp;&nbsp;
-			<a href="javascript:joinform.reset()">다시작성</a>
+			<a href="javascript:joinForm.reset()">다시작성</a>
 			</td>
 		</tr>
 	</table>
