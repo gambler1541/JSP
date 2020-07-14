@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>조건에 반대되는 엘리먼트 검색하기 - :not() </title>
+<script src="../js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function(){
+		$('input:checked + span').css('backgroundColor', 'yellow');
+	})
+</script>
+</head>
+<body>
+	<div>
+		<input type="checkbox" name="fruit" /><span>사과</span>
+	</div>
+	<div>
+		<input type="checkbox" name="fruit" /><span>바나나</span>
+	</div>
+	<div>
+		<input type="checkbox" name="fruit" checked="checked"/><span>오렌지</span>
+	</div>
+	
+</body>
+</html>

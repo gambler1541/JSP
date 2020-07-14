@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>여러 개의 취미를 체크박스에서 선택하기 -:checkbox</title>
+<style>
+	div{ padding : 5px }
+	.item{ float: left; width:100px; }
+</style>
+<script src="../js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function(){
+	$('#selectBtn:button').click(function(){
+		var checkedList="";
+		var checkedConsole ="";
+		$("input[name='hobby']:checkbox:not(:checked)").each(function(){
+			checkedList += $(this).val() + "\t";
+			checkedConsole += $(this).prev().text() + "\t";
+		});
+		$('#contents').html(checkedList);
+		console.log(checkedConsole);
+		});
+	});
+</script>
+</head>
+<body>
+<div>
+	<span class="item">음악감상</span>
+	<input type="checkbox" name="hobby" value="music" />
+</div>
+<div>
+	<span class="item">등산</span>
+	<input type="checkbox" name="hobby" value="mt" />
+</div>
+<div>
+	<span class="item">요가</span>
+	<input type="checkbox" name="hobby" value="yoga" />
+</div>
+<div>
+	<span class="item">독서</span>
+	<input type="checkbox" name="hobby" value="reading" />
+</div>
+<div>
+	<input type="button" id="selectBtn" value="취미 선택" />
+</div>
+<div id="contents">결과</div>
+
+</body>
+</html>

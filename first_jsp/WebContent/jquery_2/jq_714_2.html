@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>첫 번째와 마지막 자식 엘리먼트에 스타일 적용하기 - :first-child, :last-child</title>
+<style>
+	.textstyle {
+		text-decoration: underline;
+		color: red;
+		font-size: 20pt;
+	}
+</style>
+<script src="../js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('div span:first-child, div span:last-child').addClass('textstyle');
+	});
+	<!--
+	
+	$(document).ready(function(){
+		$('div span:first-child, div span:last-child')
+		체인 방식으로 css적용
+		.css('text-decoration','underline')
+		.css('color','red')
+		.css('font-size','20pt');
+	});
+	
+	맵 방식으로 css적용
+	.css(
+		'text-decoration' : 'underline'
+		...
+	)
+	-->
+</script>
+</head>
+<body>
+	<div>
+		<span>one</span>
+		<span>two</span>
+		<span>three</span>
+		<span>four</span>
+	</div>
+	<div>
+		<span>five</span>
+		<span>six</span>
+		<span>seven</span>
+		<span>eight</span>
+	</div>
+</body>
+</html>

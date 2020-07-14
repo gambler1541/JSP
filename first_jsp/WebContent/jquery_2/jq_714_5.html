@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>어트리뷰트를 조건으로 제시하여 엘리먼트를 찾기 - E[A], E[A=V], E[A^=V], E[A$=V], E[A*=V]</title>
+<style>
+	.spotlight{ background-color: #ff0 }
+	.redtext { color: #f00 }
+	.bluetext { color: #00f }
+	.largetext { font-size : 30pt }
+	.italictext { font-style: italic; }
+	.box { border : 3pt solid #f00 }
+</style>
+<script src="../js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+	var output = function(selector){
+		var resultText = "";
+		console.log("\n"+selector + "로 검색된 엘리먼트 갯수 " + $(selector).length);
+		$(selector).each(function(){
+			resultText += $(this).text() + "\t";
+		});
+		console.log(resultText + "\n");
+	};
+	
+	$(function(){
+		$('span[id]').addClass('spotlight');
+		$('span[id="simpletext1"]').addClass('redtext');
+		$('span[id!="simpletext1"]').addClass('bluetext');
+		$('span[id^="complex"]').addClass('italictext');
+		$('span[id$="text1"]').addClass('largetext');
+		$('span[id*="text"]').addClass('box');
+		
+		output("span[id]");
+		output("span[id='simpletext1']");
+		output("span[id!='simpletext1']");
+		output("span[id^='complex']");
+		output("span[id$='text1']");
+		output("span[id*='text']");
+	})
+</script>
+
+</head>
+<body>
+	<span id="simpletext1">simple</span>
+	<span class="simpletext2">jQuery</span>
+	<span id="complextext1">basic</span>
+	<span id="complextext2">example</span>
+	<span id="complex">book</span>
+</body>
+</html>

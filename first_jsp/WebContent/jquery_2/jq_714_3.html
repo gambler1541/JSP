@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>n번째 혹은 짝수 또는 홀수 자식 엘리먼트 검색하기 - :nth-child(n), :nth-child(even), :nth-child(odd)</title>
+</head>
+<style>
+	div{ float: left; }
+	span {color: blue;}
+</style>
+
+<script src="../js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("ul li:nth-child(2)").append("<span> - 2nd!</span>");
+		$("ul li:nth-child(even)").css({"backgroundColor" : "pink"});
+		$("ul li:nth-child(odd)").css({"backgroundColor" : "yellow"});
+		$("ul li:nth-child(3)").append("<span> - 박명배</span>")
+	});
+</script>
+<body>
+	<div>
+		<ul>
+			<li>사과</li>
+			<li>바나나</li>
+			<li>복숭아</li>
+		</ul>
+	</div>
+	<div>
+		<ul>
+			<li>소나타</li>
+		</ul>
+	</div>
+	<div>
+		<ul>
+			<li>코끼리</li>
+			<li>뱀</li>
+			<li>토끼</li>
+			<li>말</li>
+		</ul>
+	</div>
+</body>
+</html>
