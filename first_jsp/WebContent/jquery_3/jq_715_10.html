@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>셀렉트된 엘리먼트들 중 표현식을 만족하지 않는 엘리먼트 얻기</title>
+<style>
+	div{
+		width: 60px;
+		height: 60px;
+		margin: 5px;
+		float: left;
+		border: 2px solid white;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("div").css("background","yellow")
+				.not('.middle')
+				.css("border-color","red");
+	});
+	
+	/*
+		not('.middle') : 매개변수에 전달된 셀렉터 표현식 또는 함수를 만족하는 엘리먼트를 제외한다.
+	*/
+</script>
+</head>
+<body>
+
+	<div id="first"></div>
+	
+	<div id="second" class="middle"></div>
+	<div id="third" class="middle"></div>
+	<div id="fourth" class="middle"></div>
+	<div id="fifth" class="middle"></div>
+	
+	<div class="sixth"></div>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>셀렉트된 엘리먼트들 중에서 조건에 맞는 엘리먼트 얻기</title>
+<style>
+	div{
+		width:60px; height: 60px;
+		margin:5px; float: left;
+		border:2px solid white;
+	}
+</style>
+<script src="../js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function(){
+		$("div").css("background","yellow")
+				.filter(".middle")
+				.css("border-color","red");
+	});	
+	
+	/*
+		filter(".middle") : 매개변수에 전달된 셀렉터 표현식 혹은 함수에 만족하는 엘리먼트를 필터링(추출)한다.
+		
+		.filter(".middle")
+		.css('border-color', 'red'); => filter() 함수에 전달된 함수의 리턴값이
+										true인 div 엘리먼트에 대해서만 border-color에 red 클래스를 적용한다.
+										filter()에 함수를 전달하면 각 확장 엘리먼트에 대해 해당 함수를 호출하고 함수 호출 결과가
+										false값을 반환하는 모든 엘리먼트를 제거한다.
+	*/
+</script>
+</head>
+<body>
+	<div id="first"></div>
+	
+	<div id="second" class="middle"></div>
+	<div id="third" class="middle"></div>
+	<div id="fourth" class="middle"></div>
+	<div id="fifth" class="middle"></div>
+	
+	<div class="sixth"></div>
+	
+</body>
+</html>

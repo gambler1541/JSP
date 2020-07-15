@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>탐색한 엘리먼트들에 기준이 되었던 엘리먼트들 추가하기</title>
+<style>
+	div{ width:60px; height: 60px; margin:10px; float:left; }
+	p{ clear:both; }
+	.redBorder{ border : 2px solid red; }
+	.yellow{ background : yellow; }
+	
+	/*
+		clear : left;  => float:left 값 취소
+				right; => float:right 값 취소
+				both;  => 오른쪽, 왼쪽 값 취소
+		
+		float : left,right => 왼쪽, 오른쪽으로 객체를 띄워서 정렬시킴
+	*/
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('button').click(function(){
+			$('div').add('p')
+					.addClass('redBorder')
+					.addClass('yellow');
+		});
+	});
+	/*
+		add('p') : jquery 객체 확장 집합에 새로운 엘리먼트를 추가한다.
+		
+		매개변수 : selector : jquery 객체 확장 집합에 추가할 엘리먼트를 찾는 셀렉터 표현식
+		        elements : jquery 객체 확장 집합에 추가할 엘리먼트
+		        htmString: 새롭게 생성할 HTML 코드
+	*/
+</script>
+</head>
+<body>
+	<div></div> <div></div> <div></div>
+	<p>redBorder 클래스의 적용은 받지 못하고 yellow 클래스의 적용 받음</p>
+	<button>클릭</button>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>셀렉트된 엘리먼트들 중 원하는 범위의 엘리먼트만 반환하기</title>
+<style>
+	div{ width:60px; height:60px;
+		 margin:5px; float:left;
+		 border: 2px solid blue;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('button').click(function(){
+			// 셀렉터로 얻어낸 확장 집합 객체가 여러 번 사용될 경우에는 변수에 저장해 둔다.
+			var $div = $('div'); // $variable은 jquery의 특수한 메서드를 사용할수있는 변수
+			// div 엘리먼트 중에서 2이상 3미만, 인덱스가 0부터 시작하기에 세번째 엘리먼트만 반환
+			$div.slice(2,3).css('background','yellow');
+			// end가 생략된 상태에서 begin만 기술하면 begin부터 끝까지
+			$div.slice(4).css('background','pink');
+		});
+	});
+</script>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+<button>노란색 입히기</button>
+</body>
+</html>

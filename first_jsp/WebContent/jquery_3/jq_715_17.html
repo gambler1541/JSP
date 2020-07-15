@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>해당 엘리먼트와 같은 노드위치의 모든 엘리먼트찾기</title>
+<style>
+	ul{ float:left; margin: 5px; font-size: 16px; font-weight: bold; }
+	p{ color:blue; margin: 10px 20px; font-size: 16px; padding: 5px; font-weight: bolder; }
+	.yellow{ background: yellow; }
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var len = $(".yellow").siblings()
+							  .css("color","red")
+							  .length;
+		$("b").text(len);
+	});
+	
+	/*
+		siblings() : 엘리먼트의 형제 엘리먼트중 조건에 맞는 형제들을 반환한다.
+	*/
+</script>
+</head>
+<body>
+	<ul>
+		<li>One</li>
+		<li>Two</li>
+		<li class="yellow">Three</li>
+		<li>Four</li>
+	</ul>
+	<ul>
+		<li>Five</li>
+		<li>Six</li>
+		<li>Seven</li>
+	</ul>
+	<ul>
+		<li>Eight</li>
+		<li class="yellow">Nine</li>
+		<li>Ten</li>
+		<li>Eleven</li>
+	</ul>
+	<p>찾은 형제 엘리먼트의 개수: <b></b> </p>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>엘리먼트에 클래스 존재 여부 확인하기</title>
+<style>
+	p, div, button {
+		margin:8px;
+		font-size: 20px;
+	}
+	.red{ color : red; }
+</style>
+<script src="../js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function(){
+		$('button:first').click(function(){
+			$('div#result1').append($("p:first").hasClass("red").toString());	
+			$('div#result2').append($("p:last").hasClass("red").toString());	
+			$('div#result3').append($("p").hasClass("red").toString());	
+		});
+		$('button:last').click(function(){
+			$('div#result1').text('첫 문장은 빨간색으로 변경하는 클래스가 있는가? ');
+			$('div#result2').text('마지막 문장은 빨간색으로 변경하는 클래스가 있는가?'); 
+			$('div#result3').text('빨간색으로 변경하는 클래스가 있는 문장이 하나라도 있는가? '); 
+		})
+	});
+</script>
+</head>
+<body>
+	<p>찾고자 하는 색상을 빨간색으로 변경하는 클래스가 없는 문장</p>
+	<p class="red">찾고자 하는 색상을 빨간색으로 변경하는 클래스가 있는 문장</p>
+	
+	<button>hasClass</button>
+	<button>reset</button>
+	
+	<div id="result1">첫 문장은 빨간색으로 변경하는 클래스가 있는가? : </div>
+	<div id="result2">마지막 문장은 빨간색으로 변경하는 클래스가 있는가? : </div>
+	<div id="result3">빨간색으로 변경하는 클래스가 있는 문장이 하나라도 있는가? : </div>
+</body>
+</html>

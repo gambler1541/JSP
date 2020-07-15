@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>엘리먼트에 해당 클래스가 있으면 삭제 없으면 추가</title>
+<style>
+	p{
+		margin : 4px;
+		font-size : 16px;
+		font-weight: bolder;
+		cursor: pointer;
+	}
+	.blue{
+		color:blue;
+	}
+</style>
+<script src="../js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function(){
+		$("p").click(function(){
+			$(this).toggleClass("blue");
+		});
+	});
+	/*
+		toggleClass('blue') : 해당 클래스가 이미 적용되어 있으면 제거하고  없으면 추가
+		매개변수 : jQuery확장 객체 집합에 토글할 클래스명
+	*/
+</script>
+</head>
+<body>
+
+<p class="blue">엘리먼트에 적용된 클래스를</p>
+<p>추가하고 제거하기를 반복하기</p>
+
+</body>
+</html>

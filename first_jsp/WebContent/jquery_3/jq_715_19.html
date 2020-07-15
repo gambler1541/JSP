@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>셀렉트된 엘리먼트중 자손 엘리먼트 자손 엘리먼트 찾기</title>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		// $("p").find('em').css('color','red');
+		// $("em", "p").css('color','red');
+		 $('p em').css('color', 'red');
+	});
+	
+	/*
+		$('em','p') : 이와 같이 표현하면 두번째 매개 변수를 기준으로 자손 엘리먼트중  em 엘리먼트를 찾는다.
+	*/
+</script>
+</head>
+<body>
+	<div>p 엘리먼트 중에서 <em> 이텔릭 단어의</em>
+		<p>글자 색을 <em>빨간색으로</em> 변경한다.</p>
+	</div>
+</body>
+</html>

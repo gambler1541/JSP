@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>해당 엘리먼트 뒤에 위치하는 형제 엘리먼트 찾기</title>
+<style>
+	div, span{
+		width: 60px; height: 60px;
+		margin: 5px; float: left;
+		border: 2px red solid;
+		background: white;
+	}
+	.after{ background: pink }
+	.selected{ border: 5px blue solid; }
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('button').click(function(){
+		// $("div").nextAll().addClass("after");
+		$("div").next("#fourth").addClass("after");
+	});
+});
+
+/*
+ next() : 엘리먼트의 형제 엘리먼트 가운데 바로 다음 엘리먼트를 반환한다.
+ nextAll() : 엘리먼트의 형제 엘리먼트 가운데 이후 엘리먼트를 모두 반환한다.
+ 
+ */
+</script>
+</head>
+<body>
+	<p><button>형제 엘리먼트에 스타일 입히기</button></p>
+	<div id="first">first</div>
+	<span id="second" class="middle">sibling
+	 <div id="child">child</div>
+ 	</span>
+ 	<div id="third" class="middle">sibling</div>
+ 	<span id="fourth" class="middle">sibling</span>
+ 	<span id="fifth" class="middle">sibling</span>
+
+	<div id="sixth">last</div>
+</body>
+</html>

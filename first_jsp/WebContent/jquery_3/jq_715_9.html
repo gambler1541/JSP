@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>셀렉트된 엘리먼트들 중에서 조건에 맞는 엘리먼트 얻기</title>
+<style>
+	div {
+		width : 60px; height : 60px;
+		margin : 5px; float : left;
+		border : 2px solid white; 
+	}
+</style>
+
+<script src="../js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function(){
+		$('div').css('background','yellow')
+				.filter(function(index){
+					return index == 0 || $(this).attr('id') =='fourth';
+				})
+				.css('border-color','red');
+	});
+</script>
+
+</head>
+<body>
+	
+	<div id="first"></div>
+	
+	<div id="second" class="middle"></div>
+	<div id="third" class="middle"></div>
+	<div id="fourth" class="middle"></div>
+	<div id="fifth" class="middle"></div>
+	
+	<div class="sixth"></div>
+	
+	
+</body>
+</html>

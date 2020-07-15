@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>해당 엘리먼트의 모든 부모 엘리먼트 찾기</title>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var result = new Array();
+		$("b").parents()
+			  .each(function(i){
+			  result[i]=this.tagName; 	  
+		  });
+		$("b").append(result.reverse().join(", "));
+	});
+	
+	/*
+		parents() : 엘리먼트의 조상 엘리먼트중 조건에 맞는 엘리먼트를 반환한다.
+		
+		reverse() : append로 추가하기 전에 reverse()를 사용해 저장된 내용을 역순으로 재 정렬 한다.(인덱스 사용)
+	*/
+</script>
+</head>
+<body>
+	<div>
+		<p><span><b>부모 엘리먼트 모두 검색 : </b></span></p>
+	</div>
+</body>
+</html>

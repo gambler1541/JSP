@@ -5,24 +5,23 @@
 <title>엘리먼트의 어트리뷰트 값 제거하기</title>
 <script src="../js/jquery.js" type="text/javascript"></script>
 <script type="text/javascript">
+
 	$(function(){
-		$("#image1").attr("src",function(){
-			return "../images/" + this.title + ".jpg";
+		var src = $("img").attr("src");
+		console.log(src);
+		$("button").eq(0).click(function(){
+			$("img").attr("src",src);
 		});
-		$("#remove").click(function(){
-			$(this).prev().prev().removeAttr("src");
+		
+		$("button").eq(1).click(function(){
+			$("img").removeAttr("src");
 		});
-		$("#create").click(function(){
-			$(this).prev().attr("src",function(){
-				return "../images/" + this.title + ".jpg";
-			})
-		})
 	});
 </script>
 </head>
 <body>
-	<img id="image1" title="im4" alt="cat picture" title="야옹양~~~" />
-	<button id="create">이미지 생성</button>
-	<button id="remove">이미지 제거</button>
+	<img src="../images/im4.jpg" alt="cat picture" title="야옹양~~~" />
+	<button>이미지 생성</button>
+	<button>이미지 제거</button>
 </body>
 </html>
