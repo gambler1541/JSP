@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>해당 엘리먼트를 사라지게 하기</title>
+<style>
+	span{ display : none;}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('button:eq(0)').click(function(){
+			$('span:first').toggle();
+		});
+		$('button:eq(1)').click(function(){
+			$('span:eq(1)').toggle('slow',function(){
+				$(this).css('background','yellow');
+			});
+		});
+		$('button:eq(2)').click(function(){
+			$('span:last').toggle('fast',function(){
+				$(this).css('background','aliceblue');
+			});
+		});
+	});
+	/*
+		toggle() : 엘리먼트가 사라졌다 나타나도록 하는 상태 반복(키 하나로 이벤트를 반복)
+	*/
+</script>
+</head>
+<body>
+	<button>show it/hide it</button>
+	<span>안녕하세요</span><br />
+	<button>show it/hide it</button>
+	<span>반갑습니다</span><br />
+	<button>show it/hide it</button>
+	<span>하나의 버튼으로 생겼다 사라졌다함</span>
+</body>
+</html>

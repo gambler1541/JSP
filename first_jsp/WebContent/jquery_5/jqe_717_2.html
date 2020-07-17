@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>해당 엘리먼트를 사라지게 하기</title>
+<style>
+	span{display:none}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('button:eq(0)').click(function(){
+			$('span:eq(0)').show();
+		});
+		$('button:eq(2)').click(function(){
+			$('span:eq(1)').show('slow',function(){
+				$(this).css('backgroundColor','yellow');
+			});
+		});
+		$('button:eq(1)').click(function(){
+			$('span:eq(0)').hide();
+		});
+		
+		$('button:eq(3)').click(function(){
+			$('span:eq(1)').hide('slow',function(){
+				$(this).css('backgroundColor','');	
+			});
+		});
+		
+		$('button:eq(4)').click(function(){
+				$('span:eq(2)').show('fast',function(){
+					$(this).css('backgroundColor','aliceblue');
+				});
+		});
+		
+		$('button:eq(5)').click(function(){
+			$('span:eq(2)').hide('fast',function(){
+				$(this).css('backgroundColor','');
+			});
+		});
+	});
+	/*
+		hide() : 엘리먼트를 사라지게 만듭니다.
+	*/
+</script>
+</head>
+<body>
+	<button>Show It</button><button>Hide It</button>
+	<span>안녕하세요.</span><br />
+	<button>Show It slow</button><button>Hide It slow</button>
+	<span>반갑습니다.</span><br />
+	<button>생김 버튼</button><button>사라짐 버튼</button>
+	<span>버튼을 누르면 생기는 span tag</span>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>$.ajax로 jsp 파일 로드하기</title>
+<style>
+	td{
+		border: 1px solid gray;
+	}
+</style>
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#submit').click(function(){
+			var username = $('.username').val();
+			var pwd = $('.passwd').val();
+			var sendData = 'username=' + username + '&password='+pwd;
+			
+			$.ajaxSetup({
+				type:"POST",
+				url:"logincheck.jsp",
+				dataType:"text",
+				success: function(msg){
+					$('#message').html(msg);	
+				}
+			});
+			
+			$.ajax({
+				data: sendData
+			});
+			return false;
+		});
+	});
+</script>
+</head>
+<body>
+	<form>
+		<label for="">이름을 입력하세요 : </label>
+		<input type="text" name="username" class="username" /> <br />
+		
+		<label for="">패스워드를 입력하세요 : </label>
+		<input type="password" name="password" class="passwd" /> <br />
+		
+		<input type="button" id="submit" value="전송" />
+	</form> 
+	<div id="message"></div>
+</body>
+</html>

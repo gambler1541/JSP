@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>서버의 데이터를 대상 엘리먼트에 삽입하기</title>
+<style>
+	div{
+		width: 180px; height: 80px;
+		margin: 3px; float: left;
+	}
+</style>
+<script src="../js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#menu1').click(function(){
+			$('#message1').load('menu.html');
+			return false;
+		});
+		$('#menu2').click(function(){
+			$('#message2').load('menu.html li');
+			return false;
+		});
+	});
+</script>
+</head>
+<body>
+	<div>
+		<a href="#" id="menu1">메뉴 보기</a>
+		<span id="message1"></span>
+	</div>
+	<div>
+		<a href="#" id="menu2">메뉴 보기</a>
+		<p/>
+		<span id="message2"></span>
+	</div>
+</body>
+</html>

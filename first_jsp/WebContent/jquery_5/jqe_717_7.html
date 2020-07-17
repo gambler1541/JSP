@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>엘리먼트에 투명도 값 변경하기</title>
+<style>
+	div{
+		width: 80px; height: 80px;
+		margin: 3px; float: left;
+	}
+	div#red{ background: #f00; }
+	div#green{ background: #0f0; }
+	div#blue{ background: #00f; }
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('div#red').click(function(){
+			$(this).fadeTo('slow',1);
+		});
+		$('div#green').click(function(){
+			$(this).fadeTo('slow',0.5);
+		});
+		$('div#blue').click(function(){
+			$(this).fadeTo('slow',0);
+		});
+	});
+	
+	/*
+		fadeTo() : 대상 엘리먼트를 지정한 투명도 값으로 변경한다.
+	*/
+</script>
+</head>
+<body>
+	<div id="red"></div>
+	<div id="green"></div>
+	<div id="blue"></div>
+</body>
+</html>

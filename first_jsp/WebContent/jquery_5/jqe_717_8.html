@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>사용자 효과</title>
+<style>
+	#region{
+		position: relative; width: 200px; height: 200px;
+		overflow: hidden; margin: auto;
+	}
+	#images{
+		width: 400px; height: 200px
+	}
+	
+	#images a img {
+		width: 200px; height: 200px;
+		border: 0; position: relative;
+	}
+	
+	#direction{
+		width: 360px; margin: auto;
+	}
+	.leftbtn{margin-top: 10px;}
+	.rightbtn{margin-left: 290px; margin-top: 10px;}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('.leftbtn').click(function(){
+			$('#leftimage').animate({marginLeft:-210}, 2000);
+		});
+		$('.rightbtn').click(function(){
+			$('#leftimage').animate({marginLeft:0},2000);
+		});
+	});
+	
+	/*
+		animate() : 엘리먼트를 감추거나 나타나도록 하기를 반복
+	*/
+</script>
+</head>
+<body>
+	<div id="region">
+		<div id="images">
+			<a href="#"><img src="../images/image3.jpg" alt="" id="leftimage" /></a>
+			<a href="#"><img src="../images/image4.jpg" alt="" id="rightimage "/></a>
+		</div>
+	</div>
+	<div id="direction">
+		<button class="leftbtn">&laquo;</button>
+		<button class="rightbtn">&raquo;</button>
+	</div>
+</body>
+</html>

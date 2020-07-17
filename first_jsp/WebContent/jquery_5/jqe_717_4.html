@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sliding</title>
+<style>
+	div{
+		background : #3d9a44;
+		margin: 3px;
+		width: 80px;
+		height: 40px;
+		float: left;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#slideUp').click(function(){
+			$('div').slideUp();
+		});
+		$('#slideDown').click(function(){
+			$('div').slideDown('slow');
+		});
+		$('#slideToggle').click(function(){
+			$('div').slideToggle('slow');
+		});
+	});
+	
+	
+	/*
+		slideUp() : 엘리먼트 높이가 서서히 0에 가깝게 사라진다.
+	*/
+</script>
+</head>
+<body>
+	<button id="slideUp">slideUp</button>
+	<button id="slideDown">slideUown</button>
+	<button id="slideToggle">slideToggle</button>
+	<p></p>
+	
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

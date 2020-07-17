@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>$.ajax() 메서드</title>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#cal').on('click', function(){
+			$.ajax({
+				type : "get",
+				url : "calc.jsp",
+				data: {
+					v1: $("#v1").val(),
+					v2: $("#v2").val()
+				},
+				dataType : "text",
+				success : function(responseData, status, xhr){
+					$("#result").text(responseData);
+				},
+				error:function(xhr, status, error){
+					console.log(error);
+				}
+			});
+		});
+	});
+</script>
+
+</head>
+<body>
+값1 <input type="text" name="v1" id="v1" /><br />
+값2 <input type="text" name="v2" id="v2" /><br />
+<button id="cal">계산</button>
+<div id="result"></div>
+</body>
+</html>

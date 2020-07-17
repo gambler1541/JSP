@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>서버의 데이터를 대상 엘리먼트에 삽입하기-Ajax 사용</title>
+<style>
+	div{
+		width: 200px; height: 80px;
+		margin: 3px; float: left;
+	}
+</style>
+<script src="../js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#menu1').click(function(){
+			$.ajax({
+				url:'menu.html',
+				dataType :"html",
+				success:function(data){
+					$('#message1').html(data);
+				}
+			});
+			return false;
+		});
+		$('#menu2').click(function(){
+			$.ajax({
+				url:'menu.html',
+				dataType : "html",
+				success : function(data){
+					$('#message2').html($(data).find('li'));
+				}
+			});
+			return false;
+		});
+	});
+	/*
+		$.ajax() : Ajax요청을 설정하고 제어할 수 있도록 jQuery에서 제공하는 유틸리티 함수이다. 
+				   $.ajax()는 요청의 생성방법과 통보 받을 콜백을 제어하고자 전달된 Option을 사용하여
+				   Ajax 요청을 전송하는 메소드로 반환값은 xhr인스턴스 이다. 
+				  
+	*/
+</script>
+</head>
+<body>
+	<div>
+		<a href="#" id="menu1">메뉴 보기</a>
+		<span id="message1"></span>
+	</div>
+	<div>
+		<a href="#" id="menu2">메뉴 보기</a>
+		<p/>
+		<span id="message2"></span>
+	</div>
+</body>
+</html>

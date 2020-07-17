@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>해당 엘리먼트를 서서히 보이게 하기</title>
+<style>
+	span{ color : red; cursor: pointer;}
+	div{
+		margin:3px; width: 80px;
+		display: none; height: 80px;
+		float: left;
+	}
+	div#red{ background: #f00; }
+	div#green{ background: #0f0; }
+	div#blue{ background: #00f; }
+	div#tomato{ background: tomato;}
+	div#aliceblue{ background: aliceblue;}
+	div#black {background: black;}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('span#sp1').click(function(){
+			$('#first div:hidden:first').fadeIn('slow');
+		});
+		$('span#sp2').click(function(){
+			$('#second div:hidden:first').fadeIn('slow');
+		});
+	});
+	/*	
+		fadeIn() : 엘리먼트의 불투명도를 점점 높여서 엘리먼트가 보이게 한다.
+	*/
+</script>
+</head>
+<body>
+
+	<span id="sp1">클릭</span><br>
+	<span id="first">
+		<div id="red" class="first"></div>
+		<div id="green" class="first"></div>
+		<div id="blue" class="first"></div>
+	</span>
+	<br /><br /><br /><br /><br />
+
+	<span id="sp2">클릭</span><<br />
+	<span id="second">
+		<div id="tomato" class="second"></div>
+		<div id="aliceblue" class="second"></div>
+		<div id="black" class="second"></div>
+	</span>
+
+
+</body>
+</html>

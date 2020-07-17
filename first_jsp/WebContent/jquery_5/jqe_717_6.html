@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>페이딩</title>
+<style>
+	p{
+		position: relative;
+		width: 400px;
+		height: 90px;
+	}
+	div{
+		position: absolute;
+		width: 400px;
+		height: 65px;
+		font-size: 36px;
+		text-align: center;
+		color: yellow;
+		background: red;
+		padding-top: 25px;
+		top : 0;
+		left: 0;
+		display: none;
+	}
+	span{
+		display: none;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#fadeIn').click(function(){
+			$('div').fadeIn(3000, function(){
+				$('span').fadeIn(100);
+			});
+			return false;
+		});
+		$('#fadeOut').click(function(){
+			$('div').fadeOut(3000, function(){
+				$('span').fadeIn(100);
+			});
+			return false;
+		});
+		$('#fadeToggle').click(function(){
+			$('div').fadeToggle(3000, function(){
+				$('span').fadeIn(100);
+			});
+			return false;
+		});
+	});
+	/*
+	fadeOut() : 불투명도를 점점 감소하면서 해당 엘리먼트를 서서히 사라지게 한다.
+	*/
+</script>
+</head>
+<body>
+	<p>
+		불투명도를 점점 높여서 보이도록 한다.
+		speed를 fast, normal, slow 또는 0이상의 숫자(밀세컨드 단위)를 준다.
+		애니메이션이 끝난 후에 실행할 함수를 지정한다.
+	</p>
+	<div><span>S U C C E S S !</span></div>
+	<button id="fadeIn">fadeIn</button>
+	<button id="fadeOut">fadeOut</button>
+	<button id="fadeToggle">fadeToggle</button>
+</body>
+</html>

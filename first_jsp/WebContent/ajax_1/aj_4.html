@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSON 이용하기</title>
+<style>
+	td{
+		border: 1px solid gray;
+	}
+</style>
+<script src="../js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function(){
+		$.getJSON('item.json', function(data, textStatus){
+			$('#treeData').append(
+					"<tr><td>id</td>" + "<td>name</td>"
+					+"<td>price</td>" + "<td>description</td>" + "</tr>");
+			
+			$.each(data, function(){
+				$('#treeData').append("<tr>"+"<td>"
+					+ this.id + "</td>" + "<td>"
+					+ this.name + "</td>" + "<td  align='right'>"
+					+ this.price + "</td>" + "<td>"
+					+ this.description + "</td>" + "</tr>"
+				);
+			});
+		});
+	});
+	
+	/*
+		getJSON() : JSON으로 표현된 데이터를 얻어온다.
+		
+		JSON : JSON은 자바스크립트의 객체 표기법으로부터 파생된 부분 집합입니다.
+		
+		따라서 JSON 데이터는 다음과 같은 자바스크립트 객체 표기법에 따른 구조로 구성됩니다.
+		
+		1. JSON 데이터는 이름과 값의 쌍으로 이루어집니다.
+		2. JSON 데이터는 쉼표(,)로 나열됩니다.
+		3. 객체(object)는 중괄호({})로 둘러쌓아 표현합니다. 
+		4. 배열(array)는 대괄호([])로 둘러쌓아 표현합니다.
+		
+		JSON 데이터
+		
+		JSON 데이터는 이름과 값의 쌍으로 구성됩니다.
+		이러한 JSON 데이터는 데이터 이름, 콜론(:), 값의 순서로 구성됩니다.
+		
+		문법 => '데이터 이름' : '값'
+	*/
+</script>
+</head>
+<body>
+	<table id="treeData"></table>
+</body>
+</html>
