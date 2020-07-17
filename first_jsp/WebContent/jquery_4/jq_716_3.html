@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>해당 엘리먼트에 형제 엘리먼트로 추가하기</title>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('header').after($('<div>좋아하는 과일 : 사과 </div>'));
+		$('<div>싫어하는 과일 : 바나나 </div>').insertAfter($('header'));
+	});
+	/*
+		after() : 매개변수인 콘텐츠를 jQuey 확장 객체 집합의 가장 뒤에 새로운 엘리먼트로 추가한다.
+	
+	*/
+</script>
+</head>
+<body>
+	<header>
+		<h1>과일</h1>
+	</header>
+	<footer>
+		<h3><i>copyright korea.com</i></h3>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>해당 엘리먼트 제거하기</title>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+
+	$(function(){
+		$("button").click(function(){
+			$("p").remove();
+		});
+	});
+</script>
+</head>
+<body>
+<button>엘리먼트 제거하기</button>
+<div>
+	<p>Racoon's</p>
+	jQuery
+</div>
+<p><span>Mobile</span></p>
+<p>Story</p>
+</body>
+</html>

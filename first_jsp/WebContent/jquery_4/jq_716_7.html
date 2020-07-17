@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>해당 엘리먼트의 내용을 지우기</title>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('button').click(function(){
+			$('p').empty();
+		});
+	});
+</script>
+</head>
+<body>
+<button>엘리먼트 비우기</button>
+<div>
+	<p>Racoon's</p>
+	jQuery
+</div>
+<p><span>Mobile</span></p>
+<p>Story</p>
+</body>
+</html>

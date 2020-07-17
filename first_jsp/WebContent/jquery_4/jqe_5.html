@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>클릭할 때마다 서로 다른 동작함수 호출하기</title>
+<style>
+	img{
+		width:200px; height: 250px;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('img').toggle(
+			function(event){
+				$(event.target).css('opacity',0.4);
+			},
+			function(event){
+				$(event.target).css('opacity',1.0);
+			});
+	});
+	/*
+		toggle() : 엘리먼트에 클릭 이벤트가 발생할때 두 개 이상의 나열된 동작 함수들을 실행한다.
+	*/
+</script>
+</head>
+<body>
+<img src="../images/b.jpg" alt="" />
+</body>
+</html>

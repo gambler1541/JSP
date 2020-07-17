@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>마우스가 움직인 곳의 위치 알아내기</title>
+<style>
+	div{
+		width: 200px; height: 150px;
+		background-color: red; cursor: pointer;
+		margin: 30px;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('div').mouseover(function(event){
+			$('p:first').html('페이지를 기준으로 한 x 좌표 : ' + event.clientX
+					+ '<br/> 페이지를 기준으로 한 y좌표 : ' + event.clientY + '<br/>');
+			$('p:last').html('화면을 기준으로 한 x 좌표 : ' + event.screenX
+					+ '<br/> 화면을 기준으로 한 y좌표 : ' + event.screenY + '<br/>');
+		});
+	});
+	
+	/*
+		div(division marker)의 줄임말
+			영역을 구분짓거나 무리지어주는 엘리먼트
+	*/
+</script>
+</head>
+<body>
+	<div></div>
+	<p></p>
+	<p></p>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>해당 엘리먼트에 자식 엘리먼트로 추가하기</title>
+<style>
+	span{ display : block;}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+
+	$(function(){
+		$('span').append($('b'));
+	});
+	
+</script>
+</head>
+<body>
+	<b>사과</b>
+	<span>갖고 싶은 과일 : </span>
+	<span>먹고 싶은 과일 : </span>
+</body>
+</html>

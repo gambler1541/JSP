@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 객체 확대 축소</title>
+<style>
+	img{
+		width: 140px; height: 120px;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('img').one('click', function(){
+			var $target = $(this); //$(event.target);
+			$target.width($target.width()*2);
+			$target.height($target.height()*2);
+		});
+	});
+</script>
+</head>
+<body>
+<img src="../images/im18.jpg" alt="" />
+</body>
+</html>

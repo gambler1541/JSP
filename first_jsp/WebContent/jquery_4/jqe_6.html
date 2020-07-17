@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 위임하기</title>
+<style>
+	p{ background-color: yellow; font-weight: bold;
+		cursor: pointer; padding: 5px;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('p').on("click",function(){
+			$('p').append("<p> Another paragraph!</p>");	
+		});
+	});
+</script>
+</head>
+<body>
+<div>
+	<p>Click me!</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>해당 엘리먼트를 원하는 엘리먼트로 바꾸기</title>
+<style>
+	*{
+		margin:10px;
+		padding:0px 30px;
+		width: 100px;
+	}
+	.border{
+		border:2px solid red;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	
+	$(function(){
+		// $('div.two').replaceWith("<div class='border'>Replace Text</div>");
+		// $('div.box').replaceWith("<div class='border'>Replace Text</div>");
+		// $('div.three').replaceWith($('div.one'));
+		 $('div.four').replaceWith($("div.three"));
+	});
+
+</script>
+</head>
+<body>
+	<div>
+		<div class="box one">Racoon's</div>
+		<div class="box two">jQuery</div>
+		<div class="box three">Mobile</div>
+		<div class="box four">Story</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>해당 엘리먼트에 자식 엘리먼트로 추가하기</title>
+<style>
+	div{
+		float:left; margin:20px;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var fruits=['apple','banana','orange','melon'];
+		var cars=['sonata','grandure','genesis'];
+		var mt=['한라산','백두산','지리산'];
+		
+		$.each(fruits, function(index, value){
+			$('#fruit_list').append($("<li>"+value+"</li>"));
+		});
+		
+		$.each(cars, function(index, value){
+			$("<li>"+value+"</li>").appendTo("#car_list");
+		});
+		
+		$.each(mt, function(index, value){
+			$("<li>"+value+"</li>").appendTo("#mt_list");
+		});
+	});
+	
+	/*
+		append(), appendTo() : 같은 동작을 수행한다. 차이점은 대상 엘리먼트와 콘텐츠를 배치하는 순서에 있다.
+		append() : 대상 엘리먼트를 함수를 호출하기 전에 기술한다.
+		appendTo() : 대상 엘리먼트를 함수의 매개변수로 기술한다.
+	*/
+	
+</script>
+</head>
+<body>
+	<div>
+		<b>내가 좋아하는 과일</b>
+		<ul id="fruit_list"></ul>
+	</div>
+	<div>
+		<b>갖고 싶은 차</b>
+		<ul id="car_list"></ul>
+	</div>
+	<div>
+		<b>가고싶은 산</b>
+		<ul id="mt_list"></ul>
+	</div>
+</body>
+</html>

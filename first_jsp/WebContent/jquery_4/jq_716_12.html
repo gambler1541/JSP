@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>margin을 포함한 너비와 높이 값 알아내기</title>
+<style>
+	div{
+		width: 70px;
+		height: 50px;
+		background-color: red;
+		cursor: pointer;
+		margin: 5px;
+	}
+	span {
+		display: block;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var div=$('div:first');
+		$('#result1').text('outerWidth : ' + div.outerWidth() + " outerWidth(true) : "+ div.outerWidth(true)); // 마진을 포함
+		$('#result2').text('outerHeight : '+ div.outerHeight() + " outerHeight(true) : "+ div.outerHeight(true));
+	});
+</script>
+</head>
+<body>
+<div></div>
+<span id="result1"></span>
+<span id="result2"></span>
+
+</body>
+</html>
