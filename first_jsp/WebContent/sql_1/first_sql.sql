@@ -107,3 +107,6 @@ UPDATE member SET addr = 'seoul';
 
 
 
+
+
+
