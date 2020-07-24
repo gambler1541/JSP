@@ -31,15 +31,66 @@ public class BoardFrontController extends HttpServlet {
 		System.out.println("BoardFrontController.doProcess(): contextpath : " + contextPath);
 		System.out.println("BoardFrontController.doProcess(): command : " + command);
 
-		//1. 
+		//1. BoardWrite
 
 		if(command.equals("/BoardWrite.bo")) {
 			
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./board/qna_board_write.jsp");
-		} else if(command.equals("/BoardAddAction.bo")) {
+			
+		// 2. BoardAction
+		} 
+		
+		else if(command.equals("/BoardAddAction.bo")) {
 			action = new BoardAddAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+				e.printStackTrace();
+			} 	
+			
+		} 
+		
+		// 3. BoardDelete
+		
+		else if(command.equals("/BoardDelete.bo")) {
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./board/qna_board_delete.jsp");
+		}
+		
+		// BoardModify
+		else if(command.equals("/BoardModify.bo")) {
+			action = new BoardModifyView();
+			try {
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		else if(command.equals("/BoardDeleteAction.bo")) {
+			action = new BoardDeleteAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		// 9. BoardList
+		else if(command.equals("/BoardList.bo")) { 
+			action = new BoardListAction();
+			try {
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		} 
+		// 10. BoardDetail
+		else if(command.equals("/BoardDetailAction.bo")) {
+			action = new BoardDetailAction();
 			
 			try {
 				forward = action.execute(request, response);
@@ -48,7 +99,33 @@ public class BoardFrontController extends HttpServlet {
 			}
 		}
 		
+		else if(command.equals("/BoardModifyAction.bo")) {
+			action = new BoardModifyAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		
+		else if(command.equals("/BoardReplyView.bo")) {
+			action = new BoardReplyView();
+			try {
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		else if(command.equals("/BoardReplyAction.bo")) {
+			action = new BoardReplyAction();
+			
+			try {
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		// Action interface의 execute 실행 후,
 		// 결과로 받은 forward 처리
 		if(forward != null) {

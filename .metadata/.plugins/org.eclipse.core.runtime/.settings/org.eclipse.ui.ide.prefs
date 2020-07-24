@@ -1,7 +1,8 @@
+CLOSE_UNRELATED_PROJECTS=true
 IMPORT_FILES_AND_FOLDERS_RELATIVE=true
 IMPORT_FILES_AND_FOLDERS_TYPE=23,1
 PROBLEMS_FILTERS_MIGRATE=true
 eclipse.preferences.version=1
-platformState=1592789260215
+platformState=1592789260288
 quickStart=false
 tipsAndTricks=true

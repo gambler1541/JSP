@@ -1,5 +1,5 @@
 eclipse.preferences.version=1
-org.eclipse.jdt.core.builder.resourceCopyExclusionFilter=
+org.eclipse.jdt.core.builder.resourceCopyExclusionFilter=*.ucls
 org.eclipse.jdt.core.classpathVariable.ECLIPSE_HOME=C\:/jsp_2020/eclipse/
 org.eclipse.jdt.core.classpathVariable.JRE_LIB=C\:/java/jdk1.8/jre/lib/rt.jar
 org.eclipse.jdt.core.classpathVariable.JRE_SRC=C\:/java/jdk1.8/src.zip
