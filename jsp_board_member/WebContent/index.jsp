@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <meta http-equiv="refresh" content="0;URL=<%= request.getContextPath() %>/BoardList.bo"/>
 <title>MVC 게시판 </title>
 </head>

@@ -23,7 +23,6 @@ public class BoardFrontController4 extends HttpServlet {
 	}
     
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		
 		String RequestURI = request.getRequestURI();
 		System.out.println("URI :" + RequestURI);
 		String ContextPath = request.getContextPath();
@@ -55,7 +54,42 @@ public class BoardFrontController4 extends HttpServlet {
 			}catch (Exception e) {
 				e.printStackTrace();
 			}
-			
+		}
+		
+		else if(command.equals("/BoardDetailAction.bo")) {
+			action = new BoardDetailAction();
+			try {
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		else if(command.equals("/BoardDeleteAction.bo")) {
+			action = new BoardDeleteAction();
+			try {
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		else if(command.equals("/BoardModify.bo")) {
+			action = new BoardModifyView();
+			try {
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		else if(command.equals("/BoardModifyAction.bo")) {
+			action = new BoardModifyAction();
+			try {
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		if(forward != null) {

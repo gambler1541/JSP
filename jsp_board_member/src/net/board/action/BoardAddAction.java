@@ -13,7 +13,7 @@ public class BoardAddAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
+		System.out.println("BOARD_FILE == "+request.getParameter("BOARD_FILE"));
 		request.setCharacterEncoding("utf-8");
 		
 		BoardDAO boarddao = new BoardDAO();
@@ -43,7 +43,8 @@ public class BoardAddAction implements Action {
 			boarddata.setBOARD_ID(multi.getParameter("BOARD_ID"));
 			boarddata.setBOARD_SUBJECT(multi.getParameter("BOARD_SUBJECT"));
 			boarddata.setBOARD_CONTENT(multi.getParameter("BOARD_CONTENT"));
-			boarddata.setBOARD_FILE(multi.getParameter("BOARD_FILE"));
+			boarddata.setBOARD_FILE(multi.getFilesystemName((String)multi.getFileNames().nextElement()));
+			
 			
 			result = boarddao.boardInsert(boarddata);
 			

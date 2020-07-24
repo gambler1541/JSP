@@ -28,6 +28,33 @@ public class BoardDAO {
 		}
 	}
 
+	public boolean isBoardWriter(int num, String id) {
+		System.out.println("id=" + id);
+		String board_sql = "select * from memberboard where BOARD_NUM = ?";
+		
+		try {
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(board_sql);
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+			rs.next();
+			
+			if(id.equals(rs.getString("BOARD_ID"))) {
+				return true;
+			}
+		}catch (SQLException e) {
+			System.out.println("isBoardWriter 실패 : " + e);
+		}finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(con!=null) con.close();
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return false;
+	}
+	
 
 	// list count
 	public int getListCount() {
@@ -57,7 +84,7 @@ public class BoardDAO {
 
 	// 게시판 레코드 불러오기
 	public List getBoardList(int page, int limit) {
-		
+
 		String board_list_sql = "select * from " 
 				+ "(select rownum rnum,BOARD_NUM,BOARD_ID,BOARD_SUBJECT,"
 				+ "BOARD_CONTENT,BOARD_FILE,BOARD_RE_REF,BOARD_RE_LEV,"
@@ -71,7 +98,7 @@ public class BoardDAO {
 		int startrow = (page-1)* 10+1;
 		int endrow = startrow + limit -1;
 		try {
-			
+
 			con = ds.getConnection();
 			pstmt = con.prepareStatement(board_list_sql);
 			pstmt.setInt(1, startrow);
@@ -79,7 +106,7 @@ public class BoardDAO {
 			rs = pstmt.executeQuery();
 
 			while(rs.next()) {
-				
+
 				BoardBean board = new BoardBean();
 				board.setBOARD_NUM(rs.getInt("BOARD_NUM"));
 				board.setBOARD_ID(rs.getString("BOARD_ID"));
@@ -113,15 +140,15 @@ public class BoardDAO {
 	public boolean boardInsert(BoardBean board) {
 		int num = 0;
 		String sql = "";
-		
+
 		int result = 0;
-		
+
 		try {
-			
+
 			con = ds.getConnection();
 			pstmt = con.prepareStatement("select max(board_num) from memberboard");
 			rs = pstmt.executeQuery();
-			
+
 			if(rs.next()) {
 				System.out.println("rs next true");
 				num =rs.getInt(1)+1;
@@ -131,12 +158,12 @@ public class BoardDAO {
 				System.out.println("ts next false");
 				num = 1;
 			}
-			
+
 			sql = "insert into memberboard (BOARD_NUM, BOARD_ID, BOARD_SUBJECT,"
 					+"BOARD_CONTENT, BOARD_FILE, BOARD_RE_REF, BOARD_RE_LEV,"
 					+"BOARD_RE_SEQ, BOARD_READCOUNT, BOARD_DATE) "
 					+"values(?,?,?,?,?,?,?,?,?,sysdate)";
-			
+
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			pstmt.setString(2, board.getBOARD_ID());
@@ -147,10 +174,10 @@ public class BoardDAO {
 			pstmt.setInt(7, 0);
 			pstmt.setInt(8, 0);
 			pstmt.setInt(9, 0);
-			
+
 			result = pstmt.executeUpdate();
 			if(result ==0) return false;
-			
+
 			return true;
 		}catch (Exception e) {
 			System.out.println("BoardList 등록 실패" + e);
@@ -159,8 +186,119 @@ public class BoardDAO {
 				if(rs != null) rs.close();
 				if(pstmt != null) pstmt.close();
 				if(con != null) con.close();
-				
+
 			}catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return false;
+	}
+
+
+	public void setReadCountUpadte(int num) throws Exception{
+		String sql = "update memberboard set BOARD_READCOUNT= "+
+				"BOARD_READCOUNT+1 where BOARD_NUM= "+num;
+
+		try {
+			con = ds.getConnection();
+			pstmt=con.prepareStatement(sql);
+			pstmt.executeUpdate();
+		}catch (SQLException e) {
+			System.out.println("setReadCountUpdate 글 읽은 갯수 수정 실패 " + e);
+		}finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(con != null) con.close();
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
+
+	public BoardBean getDetail(int num) {
+		BoardBean board = null;
+		try {
+			con = ds.getConnection();
+			pstmt = con.prepareStatement("select * from memberboard where BOARD_NUM = ?");
+			pstmt.setInt(1, num);
+
+			rs = pstmt.executeQuery();
+
+			if(rs.next()) {
+				board = new BoardBean();
+				board.setBOARD_NUM(rs.getInt("BOARD_NUM"));
+				board.setBOARD_ID(rs.getString("BOARD_ID"));
+				board.setBOARD_SUBJECT(rs.getString("BOARD_SUBJECT"));
+				board.setBOARD_CONTENT(rs.getString("BOARD_CONTENT"));
+				board.setBOARD_FILE(rs.getString("BOARD_FILE"));
+				board.setBOARD_RE_REF(rs.getInt("BOARD_RE_REF"));
+				board.setBOARD_RE_LEV(rs.getInt("BOARD_RE_LEV"));
+				board.setBOARD_RE_SEQ(rs.getInt("BOARD_RE_SEQ"));
+				board.setBOARD_READCOUNT(rs.getInt("BOARD_READCOUNT"));
+				board.setBOARD_DATE(rs.getDate("BOARD_DATE"));
+			}
+			return board;
+		}catch (Exception e) {
+			System.out.println("getDetail 내용보기 실패 : " + e);
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(con != null) con.close();
+			}catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
+
+
+	public boolean boardDelete(BoardBean boarddata) {
+
+		int num = boarddata.getBOARD_NUM();
+		String sql =  "DELETE FROM MEMBERBOARD WHERE BOARD_NUM = ?" ;
+		try {
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			pstmt.executeUpdate();
+			return true;
+		}catch (Exception e) {
+			System.out.println("삭제 실패 : " + e);
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(con != null) con.close();
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return false;
+	}
+
+
+	public boolean boardModify(BoardBean board) {
+		String sql = "update memberboard set BOARD_SUBJECT=?, ";
+		sql += "BOARD_CONTENT=? where BOARD_NUM=?";
+		
+		try {
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, board.getBOARD_SUBJECT());
+			pstmt.setString(2, board.getBOARD_CONTENT());
+			pstmt.setInt(3, board.getBOARD_NUM());
+			pstmt.executeUpdate();
+			return true;
+		}catch (Exception e) {
+			System.out.println("수정 실패 : " + e);
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(con != null) con.close();
+			}catch (Exception e) {
 				e.printStackTrace();
 			}
 		}

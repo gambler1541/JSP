@@ -12,11 +12,6 @@ create table member2 (
 	PRIMARY KEY (member_id )
 );
 
-SELECT  count(*)  FROM MEMBERBOARD WHERE BOARD_ID=( select member_id  from member2 );
-
-
-
-
 create table memberboard (
 	board_num       number ,
 	board_id      varchar2(20) ,
