@@ -24,6 +24,7 @@
 <title>MVC 게시판 목록</title>
 </head>
 <body>
+<div align="right"> ${id }님 접속중</div>
 <table align="center" width="580" border="0">
 	<!--  게시판 리스트 -->
 	<tr align="center" valign="middle" bgcolor="#cccc66">
@@ -99,7 +100,6 @@
 				[<%=a %>]
 				<%}else{ %>
 				<a href="./BoardList.bo?page=<%=a%>">[<%=a %>]</a>
-				&nbsp;
 				<% } %>
 			<%} %>
 			

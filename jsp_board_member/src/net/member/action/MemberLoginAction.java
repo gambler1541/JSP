@@ -14,6 +14,8 @@ public class MemberLoginAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
+		request.setCharacterEncoding("utf-8");
+		
 		ActionForward forward = new ActionForward();
 		
 		HttpSession session = request.getSession();

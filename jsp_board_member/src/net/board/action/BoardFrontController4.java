@@ -92,6 +92,24 @@ public class BoardFrontController4 extends HttpServlet {
 			}
 		}
 		
+		else if(command.equals("/BoardReplyAction.bo")) {
+			action = new BoardReplyAction();
+			try {
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		else if(command.equals("/BoardReplyView.bo")) {
+			action = new BoardReplyView();
+			try {
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
 		if(forward != null) {
 			if(forward.isRedirect()) {
 				response.sendRedirect(forward.getPath());

@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입 폼</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
 <body>
 	<form action="./MemberJoinAction.me" name="joinform" method="POST">
@@ -28,7 +29,7 @@
 			</tr>
 			<tr>
 				<td>나이 : </td>
-				<td><input type="text" name="MEMBER_AGE" /></td>
+				<td><input type="text" name="MEMBER_AGE" class="form-control" /></td>
 			</tr>
 			<tr>
 				<td>성별 : </td>
@@ -39,12 +40,12 @@
 			</tr>
 			<tr>
 				<td>이메일 주소 : </td>
-				<td><input type="email" name="MEMBER_EMAIL"  size="30"/></td>
+				<td><input type="email" name="MEMBER_EMAIL"  size="30" class="form-control"/></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
-					<a href="javascript:joinform.submit()">회원가입</a>&nbsp;&nbsp;
-					<a href="javascript:joinform.reset()">다시작성</a>
+					<a href="javascript:joinform.submit()" class="btn btn-default">회원가입</a>&nbsp;&nbsp;
+					<a href="javascript:joinform.reset()" class="btn btn-default">다시작성</a>
 				</td>
 			</tr>
 			

@@ -60,32 +60,32 @@ public class MemberFrontController extends HttpServlet {
     		}
     	}
     	
-//    	else if(command.equals("/MemberListAction.me")) {
-//    		action = new MemberListAction();
-//    		try {
-//    			forward = action.execute(request,response);
-//    		}catch (Exception e) {
-//    			e.printStackTrace();
-//    		}
-//    	}
-//    	
-//    	else if(command.equals("/MemberViewAction.me")) {
-//    		action = new MemberViewAction();
-//    		try {
-//    			forward = action.execute(request,response);
-//    		}catch (Exception e) {
-//    			e.printStackTrace();
-//			}
-//    	}
-//    	
-//    	else if(command.equals("/MemberDeleteAction.me")) {
-//    		action = new MemberDeleteAction();
-//    		try {
-//    			forward = action.execute(request,response);
-//    		}catch (Exception e) {
-//    			e.printStackTrace();
-//			}
-//    	}
+    	else if(command.equals("/MemberListAction.me")) {
+    		action = new MemberListAction();
+    		try {
+    			forward = action.execute(request,response);
+    		}catch (Exception e) {
+    			e.printStackTrace();
+    		}
+    	}
+    	
+    	else if(command.equals("/MemberViewAction.me")) {
+    		action = new MemberViewAction();
+    		try {
+    			forward = action.execute(request,response);
+    		}catch (Exception e) {
+    			e.printStackTrace();
+			}
+    	}
+    	
+    	else if(command.equals("/MemberDeleteAction.me")) {
+    		action = new MemberDeleteAction();
+    		try {
+    			forward = action.execute(request,response);
+    		}catch (Exception e) {
+    			e.printStackTrace();
+			}
+    	}
     	
     	if(forward !=null) {
     		if(forward.isRedirect()) {

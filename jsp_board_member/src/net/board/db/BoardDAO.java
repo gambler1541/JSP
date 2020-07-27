@@ -282,7 +282,7 @@ public class BoardDAO {
 	public boolean boardModify(BoardBean board) {
 		String sql = "update memberboard set BOARD_SUBJECT=?, ";
 		sql += "BOARD_CONTENT=? where BOARD_NUM=?";
-		
+		 
 		try {
 			con = ds.getConnection();
 			pstmt = con.prepareStatement(sql);
@@ -303,6 +303,66 @@ public class BoardDAO {
 			}
 		}
 		return false;
+	}
+
+	public int boardReply(BoardBean board) {
+		
+		String board_max_sql = "select max(board_num) from memberboard";
+		String sql = "";
+		int num = 0;
+		int result = 0;
+		
+		int re_ref = board.getBOARD_RE_REF();
+		int re_lev = board.getBOARD_RE_LEV();
+		int re_seq = board.getBOARD_RE_SEQ();
+		
+		try {
+			
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(board_max_sql);
+			rs = pstmt.executeQuery();
+			if(rs.next()) num = rs.getInt(1)+1;
+			else num =1;
+			
+			sql = "update memberboard set BOARD_RE_SEQ=BOARD_RE_SEQ+1 WHERE BOARD_RE_REF=? and BOARD_RE_SEQ > ?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, re_ref);
+			pstmt.setInt(2, re_seq);
+			result = pstmt.executeUpdate();
+			
+			re_seq = re_seq + 1;
+			re_lev = re_lev + 1;
+			
+			sql = "insert into memberboard (BOARD_NUM, BOARD_ID, BOARD_SUBJECT,";
+			sql += "BOARD_CONTENT, BOARD_FILE, BOARD_RE_REF, BOARD_RE_LEV,BOARD_RE_SEQ,";
+			sql += "BOARD_READCOUNT,BOARD_DATE) ";
+			sql += "values(?,?,?,?,?,?,?,?,?,sysdate)";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			pstmt.setString(2, board.getBOARD_ID());
+			pstmt.setString(3, board.getBOARD_SUBJECT());
+			pstmt.setString(4, board.getBOARD_CONTENT());
+			pstmt.setString(5, board.getBOARD_FILE());
+			pstmt.setInt(6, re_ref);
+			pstmt.setInt(7, re_lev);
+			pstmt.setInt(8, re_seq);
+			pstmt.setInt(9, 0);
+			pstmt.executeUpdate();
+			return num;
+
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(con != null) con.close();
+			}catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return num;
 	}
 
 }
